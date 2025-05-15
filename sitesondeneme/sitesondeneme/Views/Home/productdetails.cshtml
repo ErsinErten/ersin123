@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tüm Ürünler - Shopla</title>
+    <link rel="stylesheet" href="~/style.css"> <!-- Doğrudan style.css kullanıldı -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="~/images/logo.png" width="125px">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="@Url.Action("Index", "Home")">AnaSayfa</a></li>
+                    <li><a href="@Url.Action("Products", "Home")">Ürünler</a></li>
+                    <li><a href="">Hakkında</a></li>
+                    <li><a href="">İletişim</a></li>
+
+                    @if (ViewData["Username"] != null)
+                    {
+                        <li style="font-weight:bold; color:cornflowerblue;">Hoşgeldin, @ViewData["Username"]!</li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Account", "Home")">Hesap</a></li>
+                    }
+                </ul>
+            </nav>
+
+
+            <img src="~/images/cart.png" width="30px" height="30px">
+        </div>
+    </div>
+
+    <!-----Ürün Detayları----->
+
+    <div class="small-container tekli-urun">
+        <div class="row">
+            <div class="col-2">
+                <img src="/images/gallery-1.jpg" style="width: 100%;" id="ProductImg" />
+                <div class="small-img-row">
+                    <div class="small-img-col">
+                        <img src="~/images/gallery-1.jpg" width="100%" class="small-img" />
+                    </div>
+                    <div class="small-img-col">
+                        <img src="~/images/gallery-1.jpg" width="100%" class="small-img" />
+                    </div>
+                    <div class="small-img-col">
+                        <img src="~/images/gallery-1.jpg" width="100%" class="small-img" />
+                    </div>
+                    <div class="small-img-col">
+                        <img src="~/images/gallery-1.jpg" width="100%" class="small-img" />
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-2">
+                <p>Anasayfa / Bilgisayar</p>
+                <h1>Bilgisayar Bilgisayar Deneme</h1>
+                <h4>5000.00 TL</h4>
+                <a href="" class="btn">Sepete Ekle</a>
+                <h3>Ürün Detayları <i class="fa fa-indent"></i></h3>
+                <br>
+                <p>SASASASASASASASASASASASASASASASASASASASASASASASASASASASSASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASASAASASASASASASA</p>
+            </div>
+        </div>
+    </div>
+
+    <!---Title-->
+    <div class="small-container">
+        <div class="row row-2">
+            <h2>İlgili Ürünler</h2>
+            <p>Daha Fazlası</p>
+        </div>
+    </div>
+
+
+
+    <!--Ürünler-->
+
+    <div class="small-container">
+        <div class="row">
+            <div class="col-4">
+                <img src="/images/kategori1.jpg">
+                <h4>Masaüstü Bilgisayar</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>50.00TL</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Uygulamamızı İndirin</h3>
+                    <p>Android veya IOS Cihazınıza Uygulamamızı İndirin.</p>
+                    <div class="app-logo">
+                        <img src="/images/play-store.png" />
+                        <img src="/images/app-store.png" />
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="/images/logo.png" />
+                    <p>Elektronik ürünlerde uygun fiyat ve garantili alışverişin adresi.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li>Kullanım Koşulları</li>
+                        <li>Sıkça Sorulan Sorular (SSS)</li>
+                        <li>Gizlilik Politikası</li>
+                        <li>İade ve Değişim Koşulları</li>
+                    </ul>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Bizi Takip Edin</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr />
+            <p class="haklar">© 2025 Shopla. Tüm hakları saklıdır.</p>
+        </div>
+    </div>
+
+    <!-----JS ürün galeri----->
+
+    <script>
+        var ProductImg = document.getElementById("ProductImg");
+        var SmallImg = document.getElementsByClassName("small-img");
+
+            SmallImg[0].onclick = function()
+            {
+                ProductImg.src = SmallImg[0].src;
+            }
+            SmallImg[1].onclick = function()
+            {
+                ProductImg.src = SmallImg[1].src;
+            }
+            SmallImg[2].onclick = function()
+            {
+                ProductImg.src = SmallImg[2].src;
+            }
+            SmallImg[3].onclick = function()
+            {
+                ProductImg.src = SmallImg[3].src;
+            }
+
+
+    </script>
+</body>
+</html>

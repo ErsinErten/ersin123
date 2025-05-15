@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Ticaret Sitesi</title>
+    <link rel="stylesheet" href="~/style.css"> <!-- Doğrudan style.css kullanıldı -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="~/images/logo.png" width="125px"> <!-- wwwroot/images/logo.png -->
+                </div>
+                <nav>
+                    <nav>
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Home")">AnaSayfa</a></li>
+                            <li><a href="@Url.Action("Products", "Home")">Ürünler</a></li>
+                            <li><a href="">Hakkında</a></li>
+                            <li><a href="">İletişim</a></li>
+
+                            @if (ViewData["Username"] != null)
+                            {
+                                <li style="font-weight:bold; color:cornflowerblue;">Hoşgeldin, @ViewData["Username"]!</li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("Account", "Home")">Hesap</a></li>
+                            }
+                        </ul>
+                    </nav>
+
+                </nav>
+                <img src="~/images/cart.png" width="30px" height="30px"> <!-- wwwroot/images/cart.png -->
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <h1>Shopla Aradığın Her şey Burada</h1>
+                    <p>Binlerce ürünü tek tıkla keşfet,<br> güvenli ödeme ve hızlı teslimatla alışverişin keyfini çıkar! 🚀</p>
+                    <a href="" class="btn">Şimdi Keşfet  &#8594;</a>
+                </div>
+                <div class="col-2">
+                    <img src="~/images/banner.png"> <!-- wwwroot/images/image1.png -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Öne çıkan kategoriler -->
+    <div class="categories">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="~/images/kategori1.jpg"> <!-- wwwroot/images/kategori1.jpg -->
+                </div>
+                <div class="col-3">
+                    <img src="~/images/kategori2.jpg"> <!-- wwwroot/images/kategori2.jpg -->
+                </div>
+                <div class="col-3">
+                    <img src="~/images/kategori3.jpg"> <!-- wwwroot/images/kategori3.jpg -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-------- Öne çıkan ürünler -------->
+    <div class="small-container">
+        <h2 class="title">Öne Çıkan Ürünler</h2>
+        <div class="row">
+            <div class="col-4">
+                <img src="/images/kategori1.jpg">
+                <h4>Masaüstü Bilgisayar</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>50.00 TL</p>
+            </div>
+        </div>
+        <h2 class="title">Son Eklenen Ürünler</h2>
+        <div class="row">
+            <div class="col-4">
+                <img src="/images/kategori1.jpg">
+                <h4>Masaüstü Bilgisayar</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                </div>
+                <p>50.00 TL</p>
+            </div>
+        </div>
+    </div>
+    <!----Özel-->
+    <div class="offer">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="/images/ozel-urun.png" class="offer-img" />
+                </div>
+                <div class="col-2">
+                    <p>SHOPLATECH.COM'A ÖZEL'</p>
+                    <h1>MSI GeForce RTX3050 Ventus 2X E OC 6GB Ryzen 5 5500 16GB</h1>
+                    <small>
+                        <i class="fa fa-square"> </i>  İşlemci Modeli : AMD Ryzen 5 <br />
+                        <i class="fa fa-square"> </i>  Anakart : MSI A520 Anakart <br />
+                        <i class="fa fa-square"> </i>  Ekran Kartı : MSI Nvidia GeForce RTX 3050 Ekran Kartı <br />
+                        <i class="fa fa-square"> </i>  RAM : 16GB <br />
+                        <i class="fa fa-square"> </i>  SSD : GoodRam 512GB PX500 NVMe SSD <br />
+                        <a href="" class="btn"> Satın Al &#8594";</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------Yorum-->
+    <div class="yorumlar">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>“Siparişim ertesi gün elime ulaştı, kargo gerçekten çok hızlıydı. Ürün özenle paketlenmişti, hiçbir hasar yoktu. Bu kadar hızlı ve sorunsuz bir alışveriş beklemiyordum, açıkçası şaşırttılar. Artık teknoloji alışverişlerimde ilk bakacağım yer burası olur.”</p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-alt"></i>
+                    </div>
+                    <img src="/images/man.jpg" />
+                    <h3>Ahmet K****</h3>
+                </div>
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>“Ekran kartını piyasanın çok altında bir fiyata aldım. Ürün orijinal kutusunda, jelatinli şekilde geldi. Montajı yaptıktan sonra direkt çalıştı, herhangi bir sorun yaşamadım. Hem uygun fiyat hem güvenilirlik açısından gerçekten içim rahat alışveriş yaptım.”</p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-alt"></i>
+                    </div>
+                    <img src="/images/woman.png" />
+                    <h3>Merve T****</h3>
+                </div>
+                <div class="col-3">
+                    <i class="fa fa-quote-left"></i>
+                    <p>“Sistem toplarken kararsız kaldığım birkaç parça vardı, canlı destekten yardım istedim. Sağ olsunlar çok ilgili davrandılar, parça uyumluluğu konusunda detaylıca yardımcı oldular. Siparişi verdikten sonra da montaj hızlı ve temiz yapılmıştı. Gözüm kapalı tavsiye ederim.”</p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-alt"></i>
+                    </div>
+                    <img src="/images/man.jpg" />
+                    <h3>Emre B****</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---Markalar-->
+    <div class="markalar">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-5">
+                    <img src="/images/amd.png" />
+                </div>
+                <div class="col-5">
+                    <img src="/images/nvidia.png" />
+                </div>
+                <div class="col-5">
+                    <img src="/images/intel.png" />
+                </div>
+                <div class="col-5">
+                    <img src="/images/asus.png" />
+                </div>
+                <div class="col-5">
+                    <img src="/images/aoc.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Uygulamamızı İndirin</h3>
+                    <p>Android veya IOS Cihazınıza Uygulamamızı İndirin.</p>
+                    <div class="app-logo">
+                        <img src="/images/play-store.png" />
+                        <img src="/images/app-store.png" />
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="/images/logo.png" />
+                    <p>Elektronik ürünlerde uygun fiyat ve garantili alışverişin adresi.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li>Kullanım Koşulları</li>
+                        <li>Sıkça Sorulan Sorular (SSS)</li>
+                        <li>Gizlilik Politikası</li>
+                        <li>İade ve Değişim Koşulları</li>
+                    </ul>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Bizi Takip Edin</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr />
+            <p class="haklar">© 2025 Shopla. Tüm hakları saklıdır.</p>
+        </div>
+    </div>
+
+
+</body>
+</html>

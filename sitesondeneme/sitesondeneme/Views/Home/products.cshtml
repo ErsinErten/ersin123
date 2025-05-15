@@ -1,0 +1,134 @@
+﻿@model List<sitesondeneme.Models.Product>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tüm Ürünler - Shopla</title>
+    <link rel="stylesheet" href="~/style.css" /> <!-- Doğrudan style.css kullanıldı -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <img src="~/images/logo.png" width="125px" /> <!-- wwwroot/images/logo.png -->
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="@Url.Action("Index", "Home")">AnaSayfa</a></li>
+                    <li><a href="@Url.Action("Products", "Home")">Ürünler</a></li>
+                    <li><a href="">Hakkında</a></li>
+                    <li><a href="">İletişim</a></li>
+
+                    @if (ViewData["Username"] != null)
+                    {
+                        <li style="font-weight:bold; color:cornflowerblue;">Hoşgeldin, @ViewData["Username"]!</li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Account", "Home")">Hesap</a></li>
+                    }
+                </ul>
+            </nav>
+            <img src="~/images/cart.png" width="30px" height="30px" /> <!-- wwwroot/images/cart.png -->
+        </div>
+    </div>
+
+    <div class="small-container">
+
+        <div class="row row-2">
+            <h2>Tüm Ürünler</h2>
+            <select>
+                <option>Önerilen</option>
+                <option>Fiyatına göre</option>
+                <option>En çok satan</option>
+                <option>En Favoriler</option>
+                <option>Yıldıza göre</option>
+            </select>
+        </div>
+
+        <div class="row">
+            @if (Model != null && Model.Count > 0)
+            {
+                @foreach (var product in Model)
+                {
+                    <div class="col-4">
+                        <img src="@product.ImagePath" alt="@product.Name" />
+                        <h4>@product.Name</h4>
+                        <div class="rating">
+                            <!-- Eğer istersen burada dinamik yıldızları da ekleyebiliriz -->
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-alt"></i>
+                        </div>
+                        <p>@String.Format("{0:N2} TL", product.Price)</p>
+                        <p>@product.Description</p>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Henüz ürün eklenmemiş.</p>
+            }
+        </div>
+
+        <div class="page-btn">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>&#8594;</span>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Uygulamamızı İndirin</h3>
+                    <p>Android veya IOS Cihazınıza Uygulamamızı İndirin.</p>
+                    <div class="app-logo">
+                        <img src="/images/play-store.png" />
+                        <img src="/images/app-store.png" />
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="/images/logo.png" />
+                    <p>Elektronik ürünlerde uygun fiyat ve garantili alışverişin adresi.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Hızlı Linkler</h3>
+                    <ul>
+                        <li>Kullanım Koşulları</li>
+                        <li>Sıkça Sorulan Sorular (SSS)</li>
+                        <li>Gizlilik Politikası</li>
+                        <li>İade ve Değişim Koşulları</li>
+                    </ul>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Bizi Takip Edin</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+            <hr />
+            <p class="haklar">© 2025 Shopla. Tüm hakları saklıdır.</p>
+        </div>
+    </div>
+
+</body>
+</html>
